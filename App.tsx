@@ -6,17 +6,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './src/View/HomeScreen';
 import Ao_cuoi from './src/View/Ao_cuoi';
-
+import Dich_vu from './src/View/Dich_vu';
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator(); 
+const Stack = createStackNavigator();
 
 function MyDrawer() {
   return (
     <Drawer.Navigator initialRouteName="Trang chủ">
       <Drawer.Screen name="Trang chủ" component={HomeScreen} />
       <Drawer.Screen name="Áo cưới" component={Ao_cuoi} />
-     
+      <Drawer.Screen name="Dịch vu" component={Dich_vu} />
     </Drawer.Navigator>
   );
 }
@@ -30,13 +30,17 @@ function App() {
           component={MyDrawer}
           options={{ headerShown: false }}
         />
-    
+
         <Stack.Screen
           name="Áo cưới"
           component={Ao_cuoi}
           options={{ headerShown: false }}
         />
-     
+        <Stack.Screen
+          name="Dịch vu"
+          component={Dich_vu}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
