@@ -1,22 +1,72 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './src/View/HomeScreen';
-import Ao_cuoi from './src/View/Ao_cuoi';
-import Dich_vu from './src/View/Dich_vu';
-
+import Welcome from './src/View/Welcome';
+import Detail from './src/View/Detail';
+import Favourite from './src/View/Favourite';
+import Setting from './src/View/Setting';
+import Login from './src/View/Login';
+import Resigter from './src/View/Resigter';
+import Home from './src/View/Home';
+import User from './src/View/User';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+
 
 function MyDrawer() {
   return (
     <Drawer.Navigator initialRouteName="Trang chủ">
-      <Drawer.Screen name="Trang chủ" component={HomeScreen} />
-      <Drawer.Screen name="Áo cưới" component={Ao_cuoi} />
-      <Drawer.Screen name="Dịch vu" component={Dich_vu} />
+      <Drawer.Screen
+        name="Trang chủ"
+        component={Home}
+        options={{
+          drawerIcon: ({ focused, color, size }) => (
+            <Image
+              source={require('../BeeStudio/src/img/01.png')}
+              style={{ width: size, height: size }}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Chi tiết"
+        component={Detail}
+        options={{
+          drawerIcon: ({ focused, color, size }) => (
+            <Image
+              source={require('../BeeStudio/src/img/02.png')} 
+              style={{ width: size, height: size }}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Yêu thích"
+        component={Favourite}
+        options={{
+          drawerIcon: ({ focused, color, size }) => (
+            <Image
+              source={require('../BeeStudio/src/img/03.png')} 
+              style={{ width: size, height: size }}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Cài đặt"
+        component={Setting}
+        options={{
+          drawerIcon: ({ focused, color, size }) => (
+            <Image
+              source={require('../BeeStudio/src/img/04.png')} 
+              style={{ width: size, height: size }}
+            />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 }
@@ -24,23 +74,19 @@ function MyDrawer() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trang chủ">
+      <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen
-          name="Trang chủ"
-          component={MyDrawer}
+          name="Welcome"
+          component={Welcome}
           options={{ headerShown: false }}
         />
-
-        <Stack.Screen
-          name="Áo cưới"
-          component={Ao_cuoi}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Dịch vu"
-          component={Dich_vu}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Trang chủ" component={MyDrawer} options={{ headerShown: false }} />
+        <Stack.Screen name="Chi tiết" component={Detail} options={{ headerShown: false }} />
+        <Stack.Screen name="Yêu thích" component={Favourite} options={{ headerShown: false }} />
+        <Stack.Screen name="Cài đặt" component={Setting} options={{ headerShown: false }} />
+        <Stack.Screen name="Resigter" component={Resigter} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="User" component={User} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -2,36 +2,44 @@ import { Dimensions, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Fl
 import React, { useState, useEffect } from 'react'
 
 const images = [
-  'https://tuart.net/wp-content/uploads/2020/08/Banner-web-super-combo-4-scaled.jpg',
-  'https://tuart.net/wp-content/uploads/2020/03/banner-web-tuart-3.jpg',
-  'https://tuart.net/wp-content/uploads/2020/08/Banner-web-super-combo-4-scaled.jpg',
-  'https://linhnga.vn/wp-content/uploads/2023/02/Untitled-design-1400x700.png',
+  'https://khangthanh.com/upload/images/hop%20giay%20dung%20dien%20thoai%20(2).jpg',
+  'https://congthuong.vn/stores/news_dataimages/2022/092022/16/16/iphone-14-pro-max-120220916161017.jpg?rt=20220916161017',
+  'https://cdn.cellphones.com.vn/media/wysiwyg/mobile/apple/mua-dien-thoai-iphone-chinh-hang-gia-re-tai-cellphones.jpg',
 ];
 
-const data = ['All', 'Cappuccino', 'Espresso', 'Americano', 'Robusta Beans', 'Liberica Coffee Beans'];
-
 const ANH = {
-  'coffe1.png': require('../img/sp.jpg'),
-  'ccoffe.png': require('../img/sp.jpg'),
-  'sanpham.jpg': require('../img/sp.jpg'),
+  'coffe1.png': require('../img/iphone.jpg'),
+  'ccoffe.png': require('../img/samsung.jpg'),
+  'sanpham.jpg': require('../img/ipad.jpg'),
 };
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-const Ao_cuoi = (props) => {
+const Home = (props) => {
   const { navigation } = props;
-    const Click = () => {
-        navigation.navigate('Chitiet_aocuoi');
-    }
+
+  const Click = () => {
+    navigation.navigate('Chi tiết');
+  }
+
   const [imgAtic, setImgAtic] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setImgAtic((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Run every 3 seconds
+    }, 5000); // Chuyển ảnh sau mỗi 5 giây
+
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setImgAtic((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Chuyển ảnh sau mỗi 5 giây
+
+    return () => clearTimeout(timeout);
+  }, [imgAtic]);
 
   const onChange = (nativeEvent) => {
     if (nativeEvent) {
@@ -51,7 +59,6 @@ const Ao_cuoi = (props) => {
           pagingEnabled
           horizontal
           style={styles.wrap}
-          // Automatically scroll to the current image
           contentOffset={{ x: imgAtic * WIDTH, y: 0 }}
         >
           {images.map((e, index) => (
@@ -72,77 +79,70 @@ const Ao_cuoi = (props) => {
         </View>
       </View>
       <View>
-        <Text style={{color:"#f7b2b7",margin:10,fontWeight:"bold",fontSize:20}}>Bộ sưu tập mới nhất  </Text>
+
         <ScrollView style={styles.container}>
-          {/* <FlatList
-            horizontal
-            data={data}
-            renderItem={({ item }) => (
-              <View style={styles.item}>
-                <Text style={{ color: "black" }}>{item}</Text>
-              </View>
-            )}
-            keyExtractor={(item) => item}
-          /> */}
-         <FlatList
+          <Text style={{ color: "#f7b2b7", margin: 10, fontWeight: "bold", fontSize: 20 }}>Sản phẩm mới nhất  </Text>
+          <FlatList
             horizontal
             data={Object.keys(ANH)}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <Pressable onPress={Click}>
                 <View style={styles.itema}>
-                <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
-                <Text style={{ color: "black" }}>Mã số:A1234</Text>
-                <Text style={{ color: "black" }}>Váy cưới mới </Text>
-                <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
-                <Text style={{ color: "black" }}>giá thuê :7000000 VND</Text>
-              </View>
+                  <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
+                  {/* Thay đổi nội dung tương ứng với từng ảnh */}
+                  <Text style={{ color: "black" }}>Mã số:A1234</Text>
+                  <Text style={{ color: "black" }}>{index === 0 ? "Iphone 15 promax" : index === 1 ? "Samsung S23 Ultra" : "iPad"}</Text>
+                  <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
+                </View>
               </Pressable>
-              
             )}
             keyExtractor={(item) => item}
           />
-            <FlatList
+          <Text style={{ color: "#f7b2b7", margin: 10, fontWeight: "bold", fontSize: 20 }}>Sản phẩm hot trend  </Text>
+          {/*  */}
+          <FlatList
             horizontal
             data={Object.keys(ANH)}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <Pressable onPress={Click}>
                 <View style={styles.itema}>
-                <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
-                <Text style={{ color: "black" }}>Mã số:A1234</Text>
-                <Text style={{ color: "black" }}>Váy cưới mới </Text>
-                <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
-                <Text style={{ color: "black" }}>giá thuê :7000000 VND</Text>
-              </View>
+                  <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
+                  {/* Thay đổi nội dung tương ứng với từng ảnh */}
+                  <Text style={{ color: "black" }}>Mã số:A1234</Text>
+                  <Text style={{ color: "black" }}>{index === 0 ? "Iphone 15 promax" : index === 1 ? "Samsung S23 Ultra" : "iPad"}</Text>
+                  <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
+                </View>
               </Pressable>
-              
             )}
             keyExtractor={(item) => item}
           />
-           <FlatList
+
+          {/*  */}
+          <Text style={{ color: "#f7b2b7", margin: 10, fontWeight: "bold", fontSize: 20 }}>Sản phẩm đã xem  </Text>
+          <FlatList
             horizontal
             data={Object.keys(ANH)}
-            renderItem={({ item }) => (
-              <Pressable onPress={Click}>
+            renderItem={({ item, index }) => (
+              <Pressable onPress={Click} style={{ marginBottom: 500 }}>
                 <View style={styles.itema}>
-                <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
-                <Text style={{ color: "black" }}>Mã số:A1234</Text>
-                <Text style={{ color: "black" }}>Váy cưới mới </Text>
-                <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
-                <Text style={{ color: "black" }}>giá thuê :7000000 VND</Text>
-              </View>
+                  <Image source={ANH[item]} style={{ width: 150, height: 200, borderRadius: 20 }} />
+                  {/* Thay đổi nội dung tương ứng với từng ảnh */}
+                  <Text style={{ color: "black" }}>Mã số:A1234</Text>
+                  <Text style={{ color: "black" }}>{index === 0 ? "Iphone 15 promax" : index === 1 ? "Samsung S23 Ultra" : "iPad"}</Text>
+                  <Text style={{ color: "black" }}>giá mua :14000000 VND</Text>
+                </View>
               </Pressable>
-              
             )}
             keyExtractor={(item) => item}
           />
-          
+          {/*  */}
         </ScrollView>
       </View>
     </SafeAreaView>
   )
 }
 
-export default Ao_cuoi
+export default Home
 
 const styles = StyleSheet.create({
   containerr: {
@@ -201,6 +201,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     borderColor: "#fff",
-    backgroundColor:"#fff"
+    backgroundColor: "#fff"
   },
 })
