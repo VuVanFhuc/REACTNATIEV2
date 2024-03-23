@@ -1,39 +1,19 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const User = () => {
-//   return (
-//     <View>
-//       <Text>User</Text>
-//     </View>
-//   )
-// }
-
-// export default User
-
-// const styles = StyleSheet.create({})
 import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const User = () => {
-    const navigation = useNavigation();
-
-    const navigateToRegister = () => {
-        navigation.navigate('Login'); 
-    };
-    const click = () => {
-      navigation.navigate('User'); 
-  };
     return (
         <View>
             <ImageBackground source={require('../img/2.jpg')} style={styles.anhnen}>
                 <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', width: "100%", height: "100%", }}>
                     {/* logo */}
-                    <Image source={require('../img/set.jpg')} style={styles.anhlogo} />
+                    <Image source={require('../img/nguoi.webp')} style={styles.anhlogo} />
                     {/* tiêu đề */}
-                    <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>     Thông tin cá nhân </Text>
-                    
+                    <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>     Profile </Text>
+                    <Text style={{color:"#fff",textAlign:"center",marginTop:30,fontSize:20,margin:10}}>Ho và tên : Vũ Văn Phúc</Text>
+                    <Text style={{color:"#fff",textAlign:"center",fontSize:20,margin:10}}>Mã sinh viên  : Ph34858</Text>
+                    <Text style={{color:"#fff",textAlign:"center",fontSize:20,margin:10}}>Lớp                : MD18063</Text>
                 </View>
             </ImageBackground>
         </View>
@@ -48,11 +28,11 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     anhlogo: {
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 150,
         marginTop: 150,
-        marginLeft: 150,
-        borderRadius:50
+        marginLeft: 120,
+        borderRadius:70
     },
     nut: {
         width: "70%",

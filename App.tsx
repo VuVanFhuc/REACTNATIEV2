@@ -12,6 +12,7 @@ import Login from './src/View/Login';
 import Resigter from './src/View/Resigter';
 import Home from './src/View/Home';
 import User from './src/View/User';
+import Mobile from './src/View/Mobile';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -87,6 +88,7 @@ function App() {
         <Stack.Screen name="Resigter" component={Resigter} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="User" component={User} options={{ headerShown: false }} />
+        <Stack.Screen name="Mobile" component={Mobile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
