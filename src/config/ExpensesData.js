@@ -1,0 +1,42 @@
+export const sampleExpenses = [
+  {
+    id: 1,
+    title: 'Mua thực phẩm',
+    description: 'Mua thực phẩm hàng tuần',
+    date: '20-03-2024',
+    type: 'Chi',
+    amount: 20000,
+  },
+  {
+    id: 2,
+    title: 'Vũ Văn Phúc ',
+    description: 'Tiền lương tháng 3',
+    date: '12-12-2024',
+    type: 'Thu',
+    amount: 900000,
+  },
+  {
+    id: 3,
+    title: 'Vũ Văn Phúc ',
+    description: 'Tiền lương tháng 3',
+    date: '12-12-2024',
+    type: 'Thu',
+    amount: 900000,
+  },
+  {
+    id: 4,
+    title: 'phucvvph34858fpt.edu.vn ',
+    description: 'Tiền lương tháng 3',
+    date: '12-12-2024',
+    type: 'Thu',
+    amount: 900000,
+  },
+  {
+    id: 5,
+    title: 'phucvvph34858fpt.edu.vn ',
+    description: 'Tiền lương tháng 3',
+    date: '12-12-2024',
+    type: 'Thu',
+    amount: 900000,
+  },
+];
