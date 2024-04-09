@@ -1,0 +1,20 @@
+{
+  "expense": [
+    {
+      "id": "1",
+      "title": "Mua thực phẩm",
+      "description": "Mua thực phẩm hàng tuần",
+      "date": "20-03-2024",
+      "type": "Chi",
+      "amount": 20000
+    },
+    {
+      "id": "5",
+      "title": "asdasd",
+      "description": "dsad",
+      "date": "sdasd",
+      "type": "dasd",
+      "amount": null
+    }
+  ]
+}
