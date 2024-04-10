@@ -20,30 +20,30 @@ const Setting = () => {
 
     const changeTheme = () => {
         // Đổi theme ở đây
-        setThemeChanged(true);
+        setThemeChanged(!themeChanged);
         // Hiển thị thông báo
         Alert.alert('Thông báo', 'Đổi theme thành công');
     };
 
     return (
-        <View>
+        <View style={[styles.container, themeChanged && styles.containerChanged]}>
             <ImageBackground source={require('../img/2.jpg')} style={styles.anhnen}>
-                <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', width: "100%", height: "100%" }}>
+                <View style={[styles.overlay, themeChanged && styles.overlayChanged]}>
                     {/* logo */}
                     <Image source={require('../img/set.jpg')} style={styles.anhlogo} />
                     {/* tiêu đề */}
-                    <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>    Setting</Text>
-                    <Pressable style={styles.nut} onPress={click}>
-                        <Text style={{ textAlign: "center", lineHeight: 50 }}>Thông tin cá nhân</Text>
+                    <Text style={[styles.title, themeChanged && styles.titleChanged]}>     Setting</Text>
+                    <Pressable style={styles.button} onPress={click}>
+                        <Text style={styles.buttonText}>Thông tin cá nhân</Text>
                     </Pressable>
-                    <Pressable style={styles.nut1} onPress={n}>
-                        <Text style={{ textAlign: "center", lineHeight: 50 }}>Thông tin máy</Text>
+                    <Pressable style={styles.button} onPress={n}>
+                        <Text style={styles.buttonText}>Thông tin máy</Text>
                     </Pressable>
-                    <Pressable style={styles.nut1} onPress={changeTheme}>
-                        <Text style={{ textAlign: "center", lineHeight: 50 }}>Đổi Theme</Text>
+                    <Pressable style={styles.button} onPress={changeTheme}>
+                        <Text style={styles.buttonText}>Đổi Theme</Text>
                     </Pressable>
-                    <Pressable style={styles.nut1} onPress={navigateToRegister}>
-                        <Text style={{ textAlign: "center", lineHeight: 50 }}>Đăng xuất</Text>
+                    <Pressable style={styles.button} onPress={navigateToRegister}>
+                        <Text style={styles.buttonText}>Đăng xuất</Text>
                     </Pressable>
                 </View>
             </ImageBackground>
@@ -54,6 +54,20 @@ const Setting = () => {
 export default Setting;
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    containerChanged: {
+        backgroundColor: 'black', 
+    },
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        width: "100%",
+        height: "100%",
+    },
+    overlayChanged: {
+        backgroundColor: 'black', 
+    },
     anhnen: {
         width: "100%",
         height: "100%",
@@ -61,11 +75,21 @@ const styles = StyleSheet.create({
     anhlogo: {
         width: 100,
         height: 100,
-        marginTop: 150,
+        marginTop: 100,
         marginLeft: 150,
         borderRadius: 50
     },
-    nut: {
+    title: {
+        color: "#9181f2",
+        fontWeight: "bold",
+        fontSize: 30,
+        width: "90%",
+        textAlign: "center",
+    },
+    titleChanged: {
+        color: "white", 
+    },
+    button: {
         width: "70%",
         height: 50,
         backgroundColor: "#9181f2",
@@ -73,12 +97,8 @@ const styles = StyleSheet.create({
         marginTop: 50,
         borderRadius: 20
     },
-    nut1: {
-        width: "70%",
-        height: 50,
-        backgroundColor: "#9181f2",
-        marginLeft: 70,
-        marginTop: 10,
-        borderRadius: 20
-    }
+    buttonText: {
+        textAlign: "center",
+        lineHeight: 50,
+    },
 });

@@ -1,15 +1,24 @@
-import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import loginApi from '../services/api/apiLogin';
 
 const Login = () => {
     const navigation = useNavigation();
-
-    const navigateToRegister = () => {
-        navigation.navigate('Resigter'); 
-    };
+    const [mail, setmail] = useState('');
+    const [pass, setpass] = useState('');
     const click = () => {
+        if (mail==''||pass=='') {
+            Alert.alert('vui lòng nhập đủ thông tin');
+            return
+        }
+        loginApi({
+            mail:mail,
+            pass:pass
+        })
         navigation.navigate('Trang chủ'); 
+        Alert.alert('đăng nhập thành công ')
     };
 
     return (
@@ -19,22 +28,16 @@ const Login = () => {
                     {/* logo */}
                     <Image source={require('../img/1.png')} style={styles.anhlogo} />
                     {/* tiêu đề */}
-                    <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>    Login</Text>
-                    {/* nơi nhập họ và tên  */}
-                    <TextInput placeholder='Nhập họ và tên ' style={{ width: "70%", height: 50, backgroundColor: "#aaa", opacity: 0.75, borderRadius: 20, marginLeft: 70, marginTop: 20 }} />
+                    <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>      Login</Text>
+                    {/* nơi nhập mail  */}
+                    <TextInput onChange={setmail} placeholder='mail' style={{ width: "70%", height: 50, backgroundColor: "#aaa", opacity: 0.75, borderRadius: 20, marginLeft: 70, marginTop: 20 }} />
                     {/* nơi nhập mật khẩu  */}
-                    <TextInput placeholder='Nhập mật khẩu  ' style={{ width: "70%", height: 50, backgroundColor: "#aaa", opacity: 0.75, borderRadius: 20, marginLeft: 70, marginTop: 20 }} />
+                    <TextInput onChange={setpass} placeholder='Nhập mật khẩu  ' style={{ width: "70%", height: 50, backgroundColor: "#aaa", opacity: 0.75, borderRadius: 20, marginLeft: 70, marginTop: 20 }} />
                     {/* button đăng nhập  */}
                     <Pressable style={styles.nut} onPress={click}>
                         <Text style={{ textAlign: "center", lineHeight: 50 }}>ĐĂNG NHẬP </Text>
                     </Pressable>
-                    <View style={{ flexDirection: "row" }}>
-                        <Text style={{ color: "#9181f2", marginTop: 20, marginLeft: 70 }}>Bạn đã có tài khoản chưa ?</Text>
-                        {/* click vào chữ sẽ chuyển qua màn hình đăng ký  */}
-                        <Pressable onPress={navigateToRegister}>
-                            <Text style={{ color: "pink", marginTop: 20, marginLeft: 50, fontWeight: "bold" }}>ĐĂNG KÝ </Text>
-                        </Pressable>
-                    </View>
+                    
 
                 </View>
             </ImageBackground>
@@ -64,3 +67,8 @@ const styles = StyleSheet.create({
         borderRadius: 20
     }
 });
+
+
+
+
+

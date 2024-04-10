@@ -1,17 +1,3 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const Detail = () => {
-//   return (
-//     <View>
-//       <Text>Detail</Text>
-//     </View>
-//   )
-// }
-
-// export default Detail
-
-// const styles = StyleSheet.create({})
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, ImageBackground, FlatList, Pressable } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
@@ -60,7 +46,7 @@ const Detail = () => {
             />
             {/* view mô tả sản phẩm của phúc  */}
             <View style={{ position: 'relative' }}>
-                <View style={{ width: 380, height: 300, backgroundColor: "#aaa", marginTop: 15, borderRadius: 20, marginLeft: 20 }}>
+                <View style={{ width: 350, height: 300, backgroundColor: "#aaa", marginTop: 15, borderRadius: 20, marginLeft: 20 }}>
                     <View style={{marginTop:50,marginLeft:20}}>
                         <Text style={{color:"black"}}>SamSung S23ultra </Text>
                         <Text style={{marginLeft:30,color:"black"}}>. Áo nhập khẩu 100%</Text>
@@ -82,20 +68,20 @@ const Detail = () => {
                 </View>
             </View>
             {/* button liên hệ  */}
-            <Pressable style={{width:300,height:40,backgroundColor:"#9181f2",marginLeft:50,marginTop:20,borderRadius:20}}>
+            <Pressable style={{width:290,height:40,backgroundColor:"#9181f2",marginLeft:50,marginTop:20,borderRadius:20}}>
                 <Text style={{textAlign:"center",lineHeight:40,fontWeight:"bold",color:"#fff"}}>LIÊN HỆ </Text>
             </Pressable>
             <Text style={{fontSize:22,color:"black",fontWeight:"bold",fontStyle:'italic',textAlign:"center",marginTop:20}}>Đăng ký liền tay - nhận ngay ưu đãi</Text>
             {/* phần form đăng ký  */}
             <Text style={{marginLeft:20}}>Họ Và Tên </Text>
-            <TextInput style={{backgroundColor: 'rgba(128, 128, 128, 0.1)',width:380,marginLeft:20}}/>
+            <TextInput style={{backgroundColor: 'rgba(128, 128, 128, 0.1)',width:350,marginLeft:20}}/>
             <Text style={{marginLeft:20}}>Số điện thoại  </Text>
-            <TextInput style={{backgroundColor: 'rgba(128, 128, 128, 0.1)',width:380,marginLeft:20}}/>
+            <TextInput style={{backgroundColor: 'rgba(128, 128, 128, 0.1)',width:350,marginLeft:20}}/>
             <Text style={{marginLeft:20}}>Thông tin đăng ký   </Text>
-            <View style={{width:380,marginLeft:20,height:100,backgroundColor: 'rgba(128, 128, 128, 0.1)'}}>
+            <View style={{width:350,marginLeft:20,height:100,backgroundColor: 'rgba(128, 128, 128, 0.1)'}}>
                 {/* hiển thị tông tin đã đăng ký ở đây  */}
             </View>
-            <Pressable style={{width:380,marginLeft:20,height:40,backgroundColor:"#9181f2",marginTop:20,marginBottom:20}}>
+            <Pressable style={{width:350,marginLeft:20,height:40,backgroundColor:"#9181f2",marginTop:20,marginBottom:20}}>
                 <Text style={{textAlign:"center",lineHeight:40,fontWeight:"bold",color:"#fff"}}>Đăng ký  </Text>
             </Pressable>
         </ScrollView>

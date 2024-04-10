@@ -7,7 +7,7 @@ const Welcome = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.navigate('Login');
+            navigation.navigate('Resigter');
         }, 5000);
 
         return () => clearTimeout(timer);

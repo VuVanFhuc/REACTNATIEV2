@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react'
 
 const images = [
   'https://khangthanh.com/upload/images/hop%20giay%20dung%20dien%20thoai%20(2).jpg',
+
   'https://congthuong.vn/stores/news_dataimages/2022/092022/16/16/iphone-14-pro-max-120220916161017.jpg?rt=20220916161017',
+  
   'https://cdn.cellphones.com.vn/media/wysiwyg/mobile/apple/mua-dien-thoai-iphone-chinh-hang-gia-re-tai-cellphones.jpg',
 ];
 
@@ -52,7 +54,10 @@ const Home = (props) => {
 
   return (
     <SafeAreaView style={styles.containerr}>
-      <View style={styles.wrap}>
+      <View>
+
+        <ScrollView style={styles.container}>
+        <View style={styles.wrap}>
         <ScrollView
           onScroll={({ nativeEvent }) => onChange(nativeEvent)}
           showsHorizontalScrollIndicator={false}
@@ -78,9 +83,6 @@ const Home = (props) => {
           ))}
         </View>
       </View>
-      <View>
-
-        <ScrollView style={styles.container}>
           <Text style={{ color: "#f7b2b7", margin: 10, fontWeight: "bold", fontSize: 20 }}>Sản phẩm mới nhất  </Text>
           <FlatList
             horizontal

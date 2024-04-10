@@ -8,7 +8,7 @@ const Mobile = () => {
             <ImageBackground source={require('../img/2.jpg')} style={styles.anhnen}>
                 <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', width: "100%", height: "100%", }}>
                     {/* logo */}
-                    <Image source={require('../img/set.jpg')} style={styles.anhlogo} />
+                    <Image source={require('../img/ll.png')} style={styles.anhlogo} />
                     {/* tiêu đề */}
                     <Text style={{ color: "#9181f2", fontWeight: "bold", fontSize: 30, width: "90%", textAlign: "center" }}>    Thông tin máy</Text>
                     <Text style={{color:"#fff",textAlign:"center",marginTop:30,fontSize:20}}>Tên           : IPHONE15PROMAX</Text>

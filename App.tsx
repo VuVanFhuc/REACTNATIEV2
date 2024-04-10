@@ -26,7 +26,7 @@ function MyDrawer() {
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Image
-              source={require('../BeeStudio/src/img/01.png')}
+              source={require('../ASM/src/img/01.png')}
               style={{ width: size, height: size }}
             />
           ),
@@ -38,7 +38,7 @@ function MyDrawer() {
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Image
-              source={require('../BeeStudio/src/img/02.png')} 
+              source={require('../ASM/src/img/02.png')} 
               style={{ width: size, height: size }}
             />
           ),
@@ -50,7 +50,7 @@ function MyDrawer() {
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Image
-              source={require('../BeeStudio/src/img/03.png')} 
+              source={require('../ASM/src/img/03.png')} 
               style={{ width: size, height: size }}
             />
           ),
@@ -62,7 +62,7 @@ function MyDrawer() {
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Image
-              source={require('../BeeStudio/src/img/04.png')} 
+              source={require('../ASM/src/img/04.png')} 
               style={{ width: size, height: size }}
             />
           ),
