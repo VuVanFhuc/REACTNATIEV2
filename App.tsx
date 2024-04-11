@@ -1,11 +1,11 @@
 import React from 'react';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import ExpenseReducer from './src/reducers/ExpenseReducer';
-import ExpenseListScreen from './src/screens/ExpenseListScreen';
 
+import ExpenseListScreen from './src/src/screens/ExpenseListScreen';
+import expenseReducer from './src/src/reducers/ExpenseReducer';
 const rootReducer = combineReducers({
-  expenses: ExpenseReducer,
+  expenses: expenseReducer,
 });
 
 const store = createStore(rootReducer);

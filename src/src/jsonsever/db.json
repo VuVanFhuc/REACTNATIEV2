@@ -9,28 +9,20 @@
       "amount": 20000
     },
     {
-      "title": "Lương tháng 2",
+      "title": "Lương tháng 4",
       "description": "Tiền lương tháng 3",
-      "date": "12-12-2024",
+      "date": "11-4-2024",
       "type": "Thu",
       "amount": 900000,
       "id": "2"
     },
     {
-      "title": "Acc",
-      "description": "Aaa",
-      "date": "Aa",
-      "type": "Aa",
-      "amount": 2222,
-      "id": "4"
-    },
-    {
-      "id": "4",
-      "title": "Aaa",
-      "description": "Aa",
-      "date": "Aa",
-      "type": "Aa",
-      "amount": 33
+      "id": "3",
+      "title": "tieeu dde",
+      "description": "mo ta",
+      "date": "123",
+      "type": "ban san pham ",
+      "amount": 1111
     }
   ]
 }

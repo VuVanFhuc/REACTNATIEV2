@@ -1,10 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Modal, TextInput, Alert } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+  Alert,
+  Button,
+} from 'react-native';
 import ExpenseItem from '../components/ExpenseItem';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchExpensesSuccess, createExpenseSuccess, deleteExpenseSuccess, updateExpenseSuccess } from '../actions/ExpenseActions';
-import { addExpenseData, deleteExpenseData, getExpressData, updateExpenseData } from './Controller';
-
+import {useSelector, useDispatch} from 'react-redux';
+import {
+  fetchExpensesSuccess,
+  createExpenseSuccess,
+  deleteExpenseSuccess,
+  updateExpenseSuccess,
+} from '../actions/ExpenseActions';
+import {
+  addExpenseData,
+  deleteExpenseData,
+  getExpressData,
+  updateExpenseData,
+} from './Controller';
 const ExpenseListScreen = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [title, setTitle] = useState('');
@@ -12,7 +31,6 @@ const ExpenseListScreen = () => {
   const [date, setDate] = useState('');
   const [type, setType] = useState('');
   const [amount, setAmount] = useState('');
-  const [timKiem, settimKiem] = useState('');
 
   const dispatch = useDispatch();
   const expenses = useSelector(state => state.expenses.expenses);
@@ -24,11 +42,6 @@ const ExpenseListScreen = () => {
 
     getExpressData(handleFetchExpenses);
   }, [dispatch]);
-
-  // Filter the expenses based on the search term
-  const filteredExpenses = expenses.filter(expense => {
-    return expense.title.toLowerCase().includes(timKiem.toLowerCase());
-  });
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -84,13 +97,8 @@ const ExpenseListScreen = () => {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Danh sách chi tiêu</Text>
       </View>
-      <TextInput
-        style={styles.input}
-        onChangeText={settimKiem}
-        placeholder='Tìm kiếm'
-      />
       <FlatList
-        data={filteredExpenses}
+        data={expenses}
         keyExtractor={expense => expense.id.toString()}
         renderItem={({item}) => (
           <ExpenseItem
@@ -99,13 +107,53 @@ const ExpenseListScreen = () => {
             onUpdate={handleUpdateExpense}
           />
         )}
-        extraData={filteredExpenses} // Ensure list updates when the filter changes
+        extraData={expenses}
       />
       <TouchableOpacity style={styles.btnAdd} onPress={toggleModal}>
         <Text style={styles.btnText}>+</Text>
       </TouchableOpacity>
       <Modal visible={isModalVisible} animationType="fade" transparent>
-        {/* Your modal content */}
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.titleModel}>Thêm chi tiêu</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Tiêu đề"
+              value={title}
+              onChangeText={setTitle}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Mô tả"
+              value={description}
+              onChangeText={setDescription}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Ngày thu chi"
+              value={date}
+              onChangeText={setDate}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Loại thu chi"
+              value={type}
+              onChangeText={setType}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Số tiền"
+              value={amount}
+              onChangeText={setAmount}
+            />
+            <TouchableOpacity style={styles.button} onPress={handleSave}>
+              <Text style={styles.buttonText}>Lưu</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btnClose} onPress={toggleModal}>
+              <Text style={styles.btnCloseText}>Đóng</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </Modal>
     </View>
   );
@@ -147,6 +195,41 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    paddingHorizontal: 16,
+    paddingVertical: '45%',
+  },
+  modalContent: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 16,
+  },
+  titleModel: {
+    fontSize: 20,
+    fontWeight: '600',
+    padding: 10,
+    alignItems: 'center',
+    textAlign: 'center',
+    width: '100%',
+  },
+  btnClose: {
+    backgroundColor: 'gray',
+    borderRadius: 4,
+    alignItems: 'center',
+    padding: 10,
+    marginTop: 10,
+  },
+  btnCloseText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
@@ -154,7 +237,17 @@ const styles = StyleSheet.create({
     padding: 8,
     height: 50,
     marginBottom: 10,
-    marginLeft: 16,
-    marginRight: 16,
+  },
+  button: {
+    marginTop: 20,
+    backgroundColor: '#007AFF',
+    borderRadius: 4,
+    padding: 12,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
