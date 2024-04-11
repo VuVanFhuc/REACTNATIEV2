@@ -14,7 +14,7 @@ const Home = ({navigation}: any) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('Create')}
         style={{
-          backgroundColor: '#D17842',
+          backgroundColor: 'red',
           height: 50,
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,

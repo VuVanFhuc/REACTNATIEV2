@@ -8,20 +8,20 @@ import {AppDispatch, updateCar} from '../redux/store';
 const Update = ({navigation, route}: any) => {
   console.log('Update  route:', route);
 
-  const [ten_xe_ph34559, setTen_xe_ph34559] = useState(
-    route.params.ten_xe_ph34559,
+  const [ten_xe_ph34858, setTen_xe_ph34858] = useState(
+    route.params.ten_xe_ph34858,
   );
-  const [mau_sac_ph34559, setMau_sac_ph34559] = useState(
-    route.params.mau_sac_ph34559,
+  const [mau_sac_ph34858, setMau_sac_ph34858] = useState(
+    route.params.mau_sac_ph34858,
   );
-  const [gia_ban_ph34559, setGia_ban_ph34559] = useState(
-    route.params.gia_ban_ph34559,
+  const [gia_ban_ph34858, setGia_ban_ph34858] = useState(
+    route.params.gia_ban_ph34858,
   );
-  const [mo_ta_ph34559, setMo_ta_ph34559] = useState(
-    route.params.mo_ta_ph34559,
+  const [mo_ta_ph34858, setMo_ta_ph34858] = useState(
+    route.params.mo_ta_ph34858,
   );
-  const [hinh_anh_ph34559, setHinh_anh_ph34559] = useState(
-    route.params.hinh_anh_ph34559,
+  const [hinh_anh_ph34858, setHinh_anh_ph34858] = useState(
+    route.params.hinh_anh_ph34858,
   );
   const [id, setId] = useState(route.params.id);
 
@@ -29,24 +29,24 @@ const Update = ({navigation, route}: any) => {
 
   const handleUpdate = () => {
     let obj = {
-      ten_xe_ph34559: ten_xe_ph34559,
-      gia_ban_ph34559: gia_ban_ph34559,
-      mau_sac_ph34559: mau_sac_ph34559,
-      mo_ta_ph34559: mo_ta_ph34559,
-      hinh_anh_ph34559: hinh_anh_ph34559,
+      ten_xe_ph34858: ten_xe_ph34858,
+      gia_ban_ph34858: gia_ban_ph34858,
+      mau_sac_ph34858: mau_sac_ph34858,
+      mo_ta_ph34858: mo_ta_ph34858,
+      hinh_anh_ph34858: hinh_anh_ph34858,
       id: id,
     };
     if (
-      ten_xe_ph34559 === '' ||
-      mau_sac_ph34559 === '' ||
-      gia_ban_ph34559 === '' ||
-      mo_ta_ph34559 === '' ||
-      hinh_anh_ph34559 === ''
+      ten_xe_ph34858 === '' ||
+      mau_sac_ph34858 === '' ||
+      gia_ban_ph34858 === '' ||
+      mo_ta_ph34858 === '' ||
+      hinh_anh_ph34858 === ''
     ) {
       ToastAndroid.show('Mời nhập thông tin', ToastAndroid.SHORT);
       return;
     }
-    if (isNaN(Number(gia_ban_ph34559))) {
+    if (isNaN(Number(gia_ban_ph34858))) {
       ToastAndroid.show('Giá phải là số', ToastAndroid.SHORT);
       return;
     }
@@ -62,38 +62,38 @@ const Update = ({navigation, route}: any) => {
         <CusInput
           title="Tên xe"
           hint="Nhập tên xe"
-          onChangeText={txt => setTen_xe_ph34559(txt)}
-          value={ten_xe_ph34559}
+          onChangeText={txt => setTen_xe_ph34858(txt)}
+          value={ten_xe_ph34858}
         />
         <CusInput
           title="Màu xe"
           hint="Nhập màu xe"
-          onChangeText={txt => setMau_sac_ph34559(txt)}
-          value={mau_sac_ph34559}
+          onChangeText={txt => setMau_sac_ph34858(txt)}
+          value={mau_sac_ph34858}
         />
         <CusInput
           title="Giá bán"
           hint="Nhập giá bán"
-          onChangeText={txt => setGia_ban_ph34559(txt)}
-          value={gia_ban_ph34559}
+          onChangeText={txt => setGia_ban_ph34858(txt)}
+          value={gia_ban_ph34858}
         />
         <CusInput
           title="Mô tả"
           hint="Nhập tên xe"
-          onChangeText={txt => setMo_ta_ph34559(txt)}
-          value={mo_ta_ph34559}
+          onChangeText={txt => setMo_ta_ph34858(txt)}
+          value={mo_ta_ph34858}
         />
         <CusInput
           title="Hình ảnh"
           hint="Nhập hình ảnh"
-          onChangeText={txt => setHinh_anh_ph34559(txt)}
-          value={hinh_anh_ph34559}
+          onChangeText={txt => setHinh_anh_ph34858(txt)}
+          value={hinh_anh_ph34858}
         />
 
         <CustomBottom
           text="Update"
           styletext={{fontWeight: 'bold'}}
-          style={{marginTop: 10}}
+          style={{marginTop: 10,backgroundColor:"red"}}
           onPress={handleUpdate}
         />
       </View>

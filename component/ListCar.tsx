@@ -1,15 +1,16 @@
 import {
   Alert,
   FlatList,
+  Image,
   StyleSheet,
   Text,
   ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {AppDispatch, RootState, deleteCar, fetchAPI} from '../redux/store';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState, deleteCar, fetchAPI } from '../redux/store';
 import CustomBottom from './CustomBottom';
 interface PropsList {
   onPress?: (item: any) => void;
@@ -26,7 +27,7 @@ const ListCar = (props: PropsList) => {
 
   const handleDelete = (item: any) => {
     Alert.alert('Thông báo!', 'Bạn có chắc muốn xóa không?', [
-      {text: 'Không'},
+      { text: 'Không' },
       {
         text: 'Có',
         onPress: () => {
@@ -38,7 +39,7 @@ const ListCar = (props: PropsList) => {
     ]);
   };
 
-  const PostItem = ({item}: any) => {
+  const PostItem = ({ item }: any) => {
     return (
       <View
         style={{
@@ -52,24 +53,29 @@ const ListCar = (props: PropsList) => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <View>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: 'black', fontWeight: 'bold'}}>Tên xe: </Text>
-            <Text>{item.ten_xe_ph34559}</Text>
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: 'black', fontWeight: 'bold'}}>Màu: </Text>
-            <Text>{item.mau_sac_ph34559}</Text>
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: 'black', fontWeight: 'bold'}}>Giá bán: </Text>
-            <Text>{item.gia_ban_ph34559}</Text>
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: 'black', fontWeight: 'bold'}}>Mô tả: </Text>
-            <Text>{item.mo_ta_ph34559}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Image source={{ uri: item.hinh_anh_ph34858 }} style={{ width: 70, height: 100,marginRight:10}} />
+          <View>
+
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ color: 'black', fontWeight: 'bold' }}>Tên xe: </Text>
+              <Text>{item.ten_xe_ph34858}</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ color: 'black', fontWeight: 'bold' }}>Màu: </Text>
+              <Text>{item.mau_sac_ph34858}</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ color: 'black', fontWeight: 'bold' }}>Giá bán: </Text>
+              <Text>{item.gia_ban_ph34858}</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ color: 'black', fontWeight: 'bold' }}>Mô tả: </Text>
+              <Text>{item.mo_ta_ph34858}</Text>
+            </View>
           </View>
         </View>
+
         <View>
           <CustomBottom
             onPress={() => handleDelete(item.id)}
@@ -83,7 +89,7 @@ const ListCar = (props: PropsList) => {
           />
           <CustomBottom
             text="Edit"
-            style={{height: 40}}
+            style={{ height: 40,backgroundColor:"red" }}
             onPress={() => props.onPress && props.onPress(item)}
           />
         </View>
@@ -91,7 +97,7 @@ const ListCar = (props: PropsList) => {
     );
   };
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={list}
         renderItem={PostItem}

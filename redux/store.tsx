@@ -41,11 +41,11 @@ export const CarSlice = createSlice({
         const updateCar = state.items.find(row => row.id === data.id);
 
         if (updateCar) {
-          updateCar.ten_xe_ph34559 = data.ten_xe_ph34559;
-          updateCar.mau_sac_ph34559 = data.mau_sac_ph34559;
-          updateCar.gia_ban_ph34559 = data.gia_ban_ph34559;
-          updateCar.mo_ta_ph34559 = data.mo_ta_ph34559;
-          updateCar.hinh_anh_ph34559 = data.hinh_anh_ph34559;
+          updateCar.ten_xe_ph34858 = data.ten_xe_ph34858;
+          updateCar.mau_sac_ph34858 = data.mau_sac_ph34858;
+          updateCar.gia_ban_ph34858 = data.gia_ban_ph34858;
+          updateCar.mo_ta_ph34858 = data.mo_ta_ph34858;
+          updateCar.hinh_anh_ph34858 = data.hinh_anh_ph34858;
         }
       })
       .addCase(updateCar.rejected, (state, action) => {
@@ -69,9 +69,9 @@ export const fetchAPI = () => {
     }
   };
 };
-
+// them
 export const createCar = createAsyncThunk(
-  'tb_car/createCar',
+  'XeMay/createCar',
   async (obj:any, thunkAPI) => {
     try {
       const res = await fetch(uri, {
@@ -95,8 +95,9 @@ export const createCar = createAsyncThunk(
     }
   },
 );
+// xoa 
 export const deleteCar = createAsyncThunk(
-  'tb_car/deleteCar',
+  'XeMay/deleteCar',
   async (id: any, thunkAPI) => {
     try {
       const res = await fetch(`${uri}/${id}`, {
@@ -119,8 +120,9 @@ export const deleteCar = createAsyncThunk(
     }
   },
 );
+// sua 
 export const updateCar = createAsyncThunk(
-  'tb_car/updateCar',
+  'XeMay/updateCar',
   async (obj: any, thunkAPI) => {
     try {
       const res = await fetch(`${uri}/${obj.id}`, {
