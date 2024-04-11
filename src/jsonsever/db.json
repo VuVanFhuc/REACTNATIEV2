@@ -9,12 +9,28 @@
       "amount": 20000
     },
     {
-      "id": "5",
-      "title": "asdasd",
-      "description": "dsad",
-      "date": "sdasd",
-      "type": "dasd",
-      "amount": null
+      "title": "Lương tháng 2",
+      "description": "Tiền lương tháng 3",
+      "date": "12-12-2024",
+      "type": "Thu",
+      "amount": 900000,
+      "id": "2"
+    },
+    {
+      "title": "Acc",
+      "description": "Aaa",
+      "date": "Aa",
+      "type": "Aa",
+      "amount": 2222,
+      "id": "4"
+    },
+    {
+      "id": "4",
+      "title": "Aaa",
+      "description": "Aa",
+      "date": "Aa",
+      "type": "Aa",
+      "amount": 33
     }
   ]
 }

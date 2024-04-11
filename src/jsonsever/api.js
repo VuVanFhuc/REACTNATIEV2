@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const urlAPI = 'http://192.168.0.101:3000/expense';
+const urlAPI = 'http://192.168.0.101:3001/expense';
 
 export const fetchExpenses = () => {
   return axios
@@ -10,6 +10,7 @@ export const fetchExpenses = () => {
       return data;
     })
     .catch(error => {
+      console.log('aaa');
       console.error(error);
       throw error;
     });

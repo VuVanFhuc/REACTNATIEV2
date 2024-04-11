@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,16 +9,16 @@ import {
   TextInput,
   Alert,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {
   updateExpense,
   deleteExpense,
   deleteExpenseSuccess,
   updateExpenseSuccess,
 } from '../actions/ExpenseActions';
-import { deleteExpenseData, updateExpenseData } from '../screens/Controller';
+import {deleteExpenseData, updateExpenseData} from '../screens/Controller';
 
-const ExpenseItem = ({ expense }) => {
+const ExpenseItem = ({expense, onDelete, onUpdate}) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [title, setTitle] = useState(expense.title);
   const [description, setDescription] = useState(expense.description);
@@ -37,7 +37,6 @@ const ExpenseItem = ({ expense }) => {
       return;
     }
     const updatedExpense = {
-      id: expense.id,
       title,
       description,
       date,
@@ -53,11 +52,23 @@ const ExpenseItem = ({ expense }) => {
   };
 
   const handleDelete = () => {
-    const handleDeleteExpenses = expenseId => {
-      dispatch(deleteExpenseSuccess(expenseId));
-      Alert.alert('Xoá thành công!');
+    onDelete(expense.id);
+  };
+
+  const handleUpdate = () => {
+    if (!title || !description || !date || !type || !amount) {
+      Alert.alert('Vui lòng nhập đầy đủ thông tin!');
+      return;
+    }
+    const updatedExpense = {
+      title,
+      description,
+      date,
+      type,
+      amount,
     };
-    deleteExpenseData(expense.id, handleDeleteExpenses);
+    onUpdate(expense.id, updatedExpense);
+    toggleModal();
   };
 
   return (
@@ -113,11 +124,11 @@ const ExpenseItem = ({ expense }) => {
             <TextInput
               style={styles.input}
               placeholder="Số tiền"
-              value={amount ? amount.toString() : ''}
+              value={amount.toString()}
               onChangeText={setAmount}
               keyboardType="numeric"
             />
-            <TouchableOpacity style={styles.button} onPress={handleEdit}>
+            <TouchableOpacity style={styles.button} onPress={handleUpdate}>
               <Text style={styles.buttonText}>Lưu</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btnClose} onPress={toggleModal}>
@@ -137,7 +148,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     shadowColor: 'black',
-    shadowOffset: { width: 1, height: 2 },
+    shadowOffset: {width: 1, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 2,
     padding: 16,
