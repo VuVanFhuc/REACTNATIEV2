@@ -1,0 +1,84 @@
+{
+    "sanpham":[
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 1",
+            "mota_ph34559": "mota_ph34559 1",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/1/2023",
+            "trang_thai_ph34559": 67,
+            "id": "1"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 2",
+            "mota_ph34559": "mota_ph34559 2",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/5/2023",
+            "trang_thai_ph34559": 35,
+            "id": "2"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 3",
+            "mota_ph34559": "mota_ph34559 3",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/6/2023",
+            "trang_thai_ph34559": 0,
+            "id": "3"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 4",
+            "mota_ph34559": "mota_ph34559 4",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/7/2023",
+            "trang_thai_ph34559": 95,
+            "id": "4"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 5",
+            "mota_ph34559": "mota_ph34559 5",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/6/2023",
+            "trang_thai_ph34559": 42,
+            "id": "5"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 6",
+            "mota_ph34559": "mota_ph34559 6",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/8/2023",
+            "trang_thai_ph34559": 7,
+            "id": "6"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 7",
+            "mota_ph34559": "mota_ph34559 7",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/9/2023",
+            "trang_thai_ph34559": 43,
+            "id": "7"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 8",
+            "mota_ph34559": "mota_ph34559 8",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/10/2023",
+            "trang_thai_ph34559": 14,
+            "id": "8"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 9",
+            "mota_ph34559": "mota_ph34559 9",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "2/8/2023",
+            "trang_thai_ph34559": 84,
+            "id": "9"
+        },
+        {
+            "ten_thietbi_ph34559": "ten_thietbi_ph34559 10",
+            "mota_ph34559": "mota_ph34559 10",
+            "hinh_anh_ph34559": "https://hunonic.com/wp-content/uploads/2022/10/thiet-bi-dien4.jpg",
+            "ngay_nhap_ph34559": "21/10/2023",
+            "trang_thai_ph34559": 63,
+            "id": "10"
+        }
+    ]
+}
